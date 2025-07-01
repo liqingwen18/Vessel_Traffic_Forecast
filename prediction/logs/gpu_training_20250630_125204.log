@@ -1,0 +1,31 @@
+2025-06-30 12:52:04,913 - numexpr.utils - INFO - Note: NumExpr detected 32 cores but "NUMEXPR_MAX_THREADS" not set, so enforcing safe limit of 8.
+2025-06-30 12:52:04,914 - numexpr.utils - INFO - NumExpr defaulting to 8 threads.
+2025-06-30 12:52:09,629 - run_gpu_training - INFO - ============================================================
+2025-06-30 12:52:09,630 - run_gpu_training - INFO - STA-BiLSTM船舶流量预测模型训练 (GPU优化版)
+2025-06-30 12:52:09,630 - run_gpu_training - INFO - ============================================================
+2025-06-30 12:52:09,630 - run_gpu_training - INFO - 开始时间: 2025-06-30 12:52:09
+2025-06-30 12:52:09,631 - run_gpu_training - WARNING - GPU不可用，将使用CPU训练（速度会非常慢）
+2025-06-30 12:52:09,632 - run_gpu_training - INFO - CPU模式: 减小批次大小为 16, 训练轮数为 5
+2025-06-30 12:52:09,634 - run_gpu_training - INFO - 开始数据处理...
+2025-06-30 12:52:09,635 - run_gpu_training - INFO - 使用演示数据集进行训练...
+2025-06-30 12:52:09,635 - run_training_demo - INFO - 加载H3网格和邻接关系...
+2025-06-30 12:52:09,646 - run_training_demo - INFO - 加载了 136 个H3网格
+2025-06-30 12:52:09,646 - run_training_demo - INFO - 构建H3网格邻接图...
+2025-06-30 12:52:09,646 - root - INFO - 构建H3网格邻接图...
+2025-06-30 12:52:09,648 - root - INFO - 构建了492条边的H3网格邻接图
+2025-06-30 12:52:09,654 - run_training_demo - INFO - 构建了 492 条边的邻接图
+2025-06-30 12:52:09,655 - run_training_demo - INFO - 加载聚合网格数据: prediction/demo_data\demo_grid_data.csv
+2025-06-30 12:52:09,835 - run_training_demo - INFO - 数据集包含 2016 个时间步
+2025-06-30 12:52:09,835 - run_training_demo - INFO - 创建时间序列数据...
+2025-06-30 12:52:15,111 - run_training_demo - INFO - 时间序列数据形状: X=(1999, 12, 136, 1), y=(1999, 6, 136, 1)
+2025-06-30 12:52:15,112 - run_training_demo - INFO - 训练集大小: 1599个样本, 验证集大小: 400个样本
+2025-06-30 12:52:15,112 - run_training_demo - INFO - 标准化数据...
+2025-06-30 12:52:15,159 - run_training_demo - INFO - 创建数据加载器...
+2025-06-30 12:52:15,167 - data_loader - INFO - 创建数据集: 1599 个样本, 12 个时间步, 136 个节点
+2025-06-30 12:52:15,168 - data_loader - INFO - 创建数据集: 400 个样本, 12 个时间步, 136 个节点
+2025-06-30 12:52:15,169 - run_training_demo - INFO - 演示数据准备完成
+2025-06-30 12:52:15,176 - run_gpu_training - INFO - 数据加载完成: 136 个H3网格
+2025-06-30 12:52:15,176 - run_gpu_training - INFO - 训练批次数: 100, 验证批次数: 25
+2025-06-30 12:52:15,176 - run_gpu_training - INFO - 开始模型训练...
+2025-06-30 12:52:15,263 - train - INFO - 开始训练STA-BiLSTM模型... 设备: cpu
+2025-06-30 12:52:15,266 - root - INFO - 模型配置已保存至: prediction/saved_models\model_config.json

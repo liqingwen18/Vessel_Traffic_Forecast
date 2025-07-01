@@ -1,0 +1,5 @@
+{
+  "NUM_EPOCHS": 10,
+  "EARLY_STOPPING_PATIENCE": 3,
+  "BATCH_SIZE": 16
+}

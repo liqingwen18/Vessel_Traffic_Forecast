@@ -1,0 +1,120 @@
+2025-06-29 19:36:27,995 - numexpr.utils - INFO - Note: NumExpr detected 32 cores but "NUMEXPR_MAX_THREADS" not set, so enforcing safe limit of 8.
+2025-06-29 19:36:27,995 - numexpr.utils - INFO - NumExpr defaulting to 8 threads.
+2025-06-29 19:36:30,628 - run_training - INFO - 开始运行STA-BiLSTM模型训练流程
+2025-06-29 19:36:30,633 - run_training - INFO - 开始数据处理...
+2025-06-29 19:36:30,633 - data_loader - INFO - 加载H3网格数据: h3_grid_analysis_res7/h3_grid_coverage.csv
+2025-06-29 19:36:30,634 - root - ERROR - 加载H3网格数据失败: [Errno 2] No such file or directory: 'h3_grid_analysis_res7/h3_grid_coverage.csv'
+2025-06-29 19:36:30,634 - run_training - ERROR - 训练过程发生错误: [Errno 2] No such file or directory: 'h3_grid_analysis_res7/h3_grid_coverage.csv'
+Traceback (most recent call last):
+  File "C:\Users\27015\Desktop\船舶流量\prediction\run_training.py", line 49, in main
+    train_loader, val_loader, edge_index, h3_indices = data_processor.prepare_training_data()
+                                                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\27015\Desktop\船舶流量\prediction\data_loader.py", line 226, in prepare_training_data
+    h3_df = load_h3_grid_data(self.config.H3_GRID_CSV_PATH)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\27015\Desktop\船舶流量\prediction\utils.py", line 69, in load_h3_grid_data
+    h3_df = pd.read_csv(csv_path, encoding=encoding)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\ProgramData\anaconda3\Lib\site-packages\pandas\io\parsers\readers.py", line 1026, in read_csv
+    return _read(filepath_or_buffer, kwds)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\ProgramData\anaconda3\Lib\site-packages\pandas\io\parsers\readers.py", line 620, in _read
+    parser = TextFileReader(filepath_or_buffer, **kwds)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\ProgramData\anaconda3\Lib\site-packages\pandas\io\parsers\readers.py", line 1620, in __init__
+    self._engine = self._make_engine(f, self.engine)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\ProgramData\anaconda3\Lib\site-packages\pandas\io\parsers\readers.py", line 1880, in _make_engine
+    self.handles = get_handle(
+                   ^^^^^^^^^^^
+  File "C:\ProgramData\anaconda3\Lib\site-packages\pandas\io\common.py", line 882, in get_handle
+    handle = open(handle, ioargs.mode)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^
+FileNotFoundError: [Errno 2] No such file or directory: 'h3_grid_analysis_res7/h3_grid_coverage.csv'
+2025-06-29 19:37:07,865 - numexpr.utils - INFO - Note: NumExpr detected 32 cores but "NUMEXPR_MAX_THREADS" not set, so enforcing safe limit of 8.
+2025-06-29 19:37:07,865 - numexpr.utils - INFO - NumExpr defaulting to 8 threads.
+2025-06-29 19:37:10,369 - run_training - INFO - 开始运行STA-BiLSTM模型训练流程
+2025-06-29 19:37:10,371 - run_training - INFO - 开始数据处理...
+2025-06-29 19:37:10,372 - data_loader - INFO - 加载H3网格数据: ../h3_grid_analysis_res7/h3_grid_coverage.csv
+2025-06-29 19:37:10,379 - root - INFO - 成功使用utf-8编码加载H3网格数据
+2025-06-29 19:37:10,381 - root - INFO - 成功加载H3网格数据: 136 个网格
+2025-06-29 19:37:10,381 - data_loader - INFO - 加载了 136 个H3网格
+2025-06-29 19:37:10,381 - data_loader - INFO - 构建H3网格邻接图...
+2025-06-29 19:37:10,382 - root - INFO - 构建H3网格邻接图...
+2025-06-29 19:37:10,384 - root - INFO - 构建了492条边的H3网格邻接图
+2025-06-29 19:37:10,385 - data_loader - INFO - 加载AIS数据: ../data/active_ships_cleaned.csv
+2025-06-29 19:37:10,386 - data_loader - INFO - 加载AIS数据: ../data/active_ships_cleaned.csv
+2025-06-29 19:37:20,250 - data_loader - INFO - 成功使用utf-8编码加载AIS数据
+2025-06-29 19:37:22,749 - data_loader - INFO - 加载AIS数据: 0 条记录
+2025-06-29 19:37:22,749 - data_loader - INFO - 开始将AIS数据聚合到H3网格...
+2025-06-29 19:37:22,754 - run_training - ERROR - 训练过程发生错误: 没有AIS数据落在指定的H3网格内
+Traceback (most recent call last):
+  File "C:\Users\27015\Desktop\船舶流量\prediction\run_training.py", line 49, in main
+    train_loader, val_loader, edge_index, h3_indices = data_processor.prepare_training_data()
+                                                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\27015\Desktop\船舶流量\prediction\data_loader.py", line 239, in prepare_training_data
+    grid_data = self.aggregate_to_h3_grid(ais_df, self.h3_indices)
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\27015\Desktop\船舶流量\prediction\data_loader.py", line 187, in aggregate_to_h3_grid
+    raise ValueError("没有AIS数据落在指定的H3网格内")
+ValueError: 没有AIS数据落在指定的H3网格内
+2025-06-29 19:38:51,046 - numexpr.utils - INFO - Note: NumExpr detected 32 cores but "NUMEXPR_MAX_THREADS" not set, so enforcing safe limit of 8.
+2025-06-29 19:38:51,046 - numexpr.utils - INFO - NumExpr defaulting to 8 threads.
+2025-06-29 19:38:54,656 - run_training - INFO - 开始运行STA-BiLSTM模型训练流程
+2025-06-29 19:38:54,661 - run_training - INFO - 开始数据处理...
+2025-06-29 19:38:54,662 - data_loader - INFO - 加载H3网格数据: h3_grid_analysis_res7/h3_grid_coverage.csv
+2025-06-29 19:38:54,662 - root - ERROR - 加载H3网格数据失败: [Errno 2] No such file or directory: 'h3_grid_analysis_res7/h3_grid_coverage.csv'
+2025-06-29 19:38:54,663 - run_training - ERROR - 训练过程发生错误: [Errno 2] No such file or directory: 'h3_grid_analysis_res7/h3_grid_coverage.csv'
+Traceback (most recent call last):
+  File "C:\Users\27015\Desktop\船舶流量\prediction\run_training.py", line 49, in main
+    train_loader, val_loader, edge_index, h3_indices = data_processor.prepare_training_data()
+                                                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\27015\Desktop\船舶流量\prediction\data_loader.py", line 226, in prepare_training_data
+    h3_df = load_h3_grid_data(self.config.H3_GRID_CSV_PATH)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\27015\Desktop\船舶流量\prediction\utils.py", line 69, in load_h3_grid_data
+    h3_df = pd.read_csv(csv_path, encoding=encoding)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\ProgramData\anaconda3\Lib\site-packages\pandas\io\parsers\readers.py", line 1026, in read_csv
+    return _read(filepath_or_buffer, kwds)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\ProgramData\anaconda3\Lib\site-packages\pandas\io\parsers\readers.py", line 620, in _read
+    parser = TextFileReader(filepath_or_buffer, **kwds)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\ProgramData\anaconda3\Lib\site-packages\pandas\io\parsers\readers.py", line 1620, in __init__
+    self._engine = self._make_engine(f, self.engine)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\ProgramData\anaconda3\Lib\site-packages\pandas\io\parsers\readers.py", line 1880, in _make_engine
+    self.handles = get_handle(
+                   ^^^^^^^^^^^
+  File "C:\ProgramData\anaconda3\Lib\site-packages\pandas\io\common.py", line 882, in get_handle
+    handle = open(handle, ioargs.mode)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^
+FileNotFoundError: [Errno 2] No such file or directory: 'h3_grid_analysis_res7/h3_grid_coverage.csv'
+2025-06-29 19:39:21,720 - numexpr.utils - INFO - Note: NumExpr detected 32 cores but "NUMEXPR_MAX_THREADS" not set, so enforcing safe limit of 8.
+2025-06-29 19:39:21,720 - numexpr.utils - INFO - NumExpr defaulting to 8 threads.
+2025-06-29 19:39:24,353 - run_training - INFO - 开始运行STA-BiLSTM模型训练流程
+2025-06-29 19:39:24,356 - run_training - INFO - 开始数据处理...
+2025-06-29 19:39:24,356 - data_loader - INFO - 加载H3网格数据: h3_grid_analysis_res7/h3_grid_coverage.csv
+2025-06-29 19:39:24,359 - root - INFO - 成功使用utf-8编码加载H3网格数据
+2025-06-29 19:39:24,360 - root - INFO - 成功加载H3网格数据: 136 个网格
+2025-06-29 19:39:24,360 - data_loader - INFO - 加载了 136 个H3网格
+2025-06-29 19:39:24,360 - data_loader - INFO - 构建H3网格邻接图...
+2025-06-29 19:39:24,360 - root - INFO - 构建H3网格邻接图...
+2025-06-29 19:39:24,361 - root - INFO - 构建了492条边的H3网格邻接图
+2025-06-29 19:39:24,361 - data_loader - INFO - 加载AIS数据: data/active_ships_cleaned.csv
+2025-06-29 19:39:24,363 - data_loader - INFO - 加载AIS数据: data/active_ships_cleaned.csv
+2025-06-29 19:39:34,709 - data_loader - INFO - 成功使用utf-8编码加载AIS数据
+2025-06-29 19:39:37,325 - data_loader - INFO - 加载AIS数据: 0 条记录
+2025-06-29 19:39:37,325 - data_loader - INFO - 开始将AIS数据聚合到H3网格...
+2025-06-29 19:39:37,335 - run_training - ERROR - 训练过程发生错误: 没有AIS数据落在指定的H3网格内
+Traceback (most recent call last):
+  File "C:\Users\27015\Desktop\船舶流量\prediction\run_training.py", line 54, in main
+    train_loader, val_loader, edge_index, h3_indices = data_processor.prepare_training_data()
+                                                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\27015\Desktop\船舶流量\prediction\data_loader.py", line 239, in prepare_training_data
+    grid_data = self.aggregate_to_h3_grid(ais_df, self.h3_indices)
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\27015\Desktop\船舶流量\prediction\data_loader.py", line 187, in aggregate_to_h3_grid
+    raise ValueError("没有AIS数据落在指定的H3网格内")
+ValueError: 没有AIS数据落在指定的H3网格内
